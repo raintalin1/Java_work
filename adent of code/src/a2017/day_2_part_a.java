@@ -10,7 +10,7 @@ import Parser.InputParser;
 public class day_2_part_a {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		InputParser p = new InputParser("input.txt");//gets the input numbers
+		InputParser p = new InputParser("input_day_2.txt");//gets the input numbers
 		p.parseInput();//parses the input
 		int crawl=0;//num to call when crawling throung parts
 		int[][] theSheet=new int[16][16];//array that holds the 2d array
