@@ -2,6 +2,9 @@ package Parser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -34,6 +37,10 @@ public class InputParser {
 	public String make2d() {
 		//TODO make a 2d array maker
 		return null;
+	}
+	public String getInputLine(int x, String fileName) throws IOException {
+		String line = Files.readAllLines(Paths.get(fileName)).get(x);		
+		return line;
 	}
 	public ArrayList<String> getInput(){
 		return input;
