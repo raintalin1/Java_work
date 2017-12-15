@@ -13,8 +13,10 @@ public class InputParser {
 
 	private ArrayList<String> input;
 	private File fileName;
+	private String file;
 	public InputParser(String fileName)
 	{
+		file=fileName;
 		this.fileName = new File(fileName);
 		input = new ArrayList<String>();
 	}
@@ -38,8 +40,12 @@ public class InputParser {
 		//TODO make a 2d array maker
 		return null;
 	}
-	public String getInputLine(int x, String fileName) throws IOException {
-		String line = Files.readAllLines(Paths.get(fileName)).get(x);		
+	public String getInputLine(int x) throws IOException {
+		String line = Files.readAllLines(Paths.get(file)).get(x);		
+		return line;
+	}
+	public int getInputLineLengthAll() throws IOException {
+		int line = Files.readAllLines(Paths.get(file)).size();	
 		return line;
 	}
 	public ArrayList<String> getInput(){
