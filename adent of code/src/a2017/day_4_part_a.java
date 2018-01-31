@@ -9,30 +9,33 @@ import Parser.InputParser;
 public class day_4_part_a {
 
 	static InputParser p = new InputParser("input_day_4.txt");
-
+	
 	public static void main(String[] args) throws IOException {
-		//gets the input numbers
-		p.parseInput();//parses the input
-		//p.printInput();
-		int x=0, y=0, z=0;
-		String hold=p.getInputLine(x);
-		String[] hold1=hold.split(" ");
 
-		for(int x1=0; x1<p.getInputLineLengthAll();x1++) {
-			hold=p.getInputLine(x1);
-			hold1=hold.split(" ");			
-			for(int a=0; a<hold1.length;a++) {
-				for(int b=0; b<hold1.length;b++) {
-					if(Arrays.asList(hold1).indexOf(hold1[a])==Arrays.asList(hold1).indexOf(hold1[b])) {}
-					else if(hold1[a]==hold1[b]) {
-						y++;
-						
+		p.parseInputLine();
+		String[] hold;
+		String hold2 = null;
+		int valid=p.getInputLineLengthAll(), b=0;
+
+		for (int x=0;x< p.getInputLineLengthAll(); x++) {//puts line into holder array for looking through
+			hold= p.specificReturnInput(x).split(" ");
+
+			for(int y=0; y<hold.length;y++) {//loop to get the word for testing 
+				hold2 = hold[y];
+
+				for(int z=0; z<hold.length;z++) {//loop to test the word
+					if (hold2.equals(hold[z])&&y!=z) {//tests to see if line has word
+						valid--;
+						b=1;
+						break;
 					}
+				}//3 loop
+				if (b==1) {
+					b=0;
+					break;
 				}
-			}
-		}
-		System.out.println(p.getInputLineLengthAll() + " - " + y + " = ");
-		System.out.print(p.getInputLineLengthAll()-y);
+			}//2 loop
+		}//1 loop
+		System.out.println(valid);
 	}
-
 }

@@ -30,11 +30,25 @@ public class InputParser {
 		in.close();
 		
 	}
+	public void parseInputLine() throws FileNotFoundException {
+		Scanner in = new Scanner(new FileReader(fileName));
+		
+		while(in.hasNextLine()) {
+			input.add(in.nextLine());
+			
+		}
+		
+		in.close();
+		
+	}
 	public void printInput() {
 		System.out.println(input.toString());
 	}
 	public String returnInput() {
 		return input.toString();
+	}
+	public String specificReturnInput(int x) {
+		return input.get(x);
 	}
 	public String make2d() {
 		//TODO make a 2d array maker
